@@ -15,12 +15,14 @@ public class EnemyController : MonoBehaviour
     public bool broken = true;
     
     Animator animator;
+    AudioSource audioSource;
 
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         timer = changeTime;
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>();
     }
     
     void Update()
@@ -78,5 +80,6 @@ public class EnemyController : MonoBehaviour
         rigidbody2D.simulated = false;
         animator.SetTrigger("Fixed");
         smokeEffect.Stop();
+        audioSource.Stop();
     }
 }
